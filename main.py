@@ -1,9 +1,6 @@
 import sys
-
 from PyQt5.QtWidgets import *
 from PyQt5.uic.properties import QtGui
-
-
 from vista.home import  *
 from analizador_lexico import *
 from analizador_sintactico import *
@@ -17,18 +14,13 @@ class Main(QMainWindow):
         # Instaciamos nuestra ventanas widget home
         self.home = Ui_home()
         self.home.setupUi(self)
-
         # Eventos
         self.home.bt_lexico.clicked.connect(self.ev_lexico)
         self.home.bt_sintactico.clicked.connect(self.ev_sintactico)
-
         self.home.bt_archivo.clicked.connect(self.ev_archivo)
         self.home.bt_limpiar.clicked.connect(self.ev_limpiar)
-
         #Desarrollandores
         self.home.estado.showMessage("Juan Pablo Cardona G - Juan Felipe Chavarria - Santiago Cifuentes")
-
-
 
     def ev_lexico(self):
         '''
@@ -59,7 +51,6 @@ class Main(QMainWindow):
         :return: 
         '''
         # print("sintactico")
-
         # limpiamos el campo
         self.home.tx_sintactico.setText('')
         #Obtenemos los datos ingresados
@@ -100,21 +91,15 @@ class Main(QMainWindow):
         self.home.tx_lexico.setText('')
         self.home.tx_sintactico.setText('')
 
-
-
-
 def iniciar():
     # Instaciamos nuestro app por defecto esto no cambia
     app = QApplication(sys.argv)
-
     # Instaciomos nuestro ventana
     ventana = Main()
     # Mostramos nuestra app
     ventana.show()
-
     #Controlamos el cierre de la app
     sys.exit(app.exec_())
-
 
 if __name__ == '__main__':
     iniciar()
